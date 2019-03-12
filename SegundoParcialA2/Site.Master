@@ -37,10 +37,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/UI/Registros/rCuentas.aspx">Registro de Cuentas</a>
+                            <a class="nav-link" runat="server" href="/UI/Registros/rCuentas.aspx">Registro de Cuentas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/UI/Registros/rPrestamos.aspx">Registro de Prestamos</a>
+                            <a class="nav-link" runat="server" href="/UI/Registros/rPrestamos.aspx">Registro de Prestamos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" runat="server" href="#">Salir</a>

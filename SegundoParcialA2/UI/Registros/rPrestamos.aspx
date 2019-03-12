@@ -36,7 +36,7 @@
                 <asp:Label ID="Label5" CssClass="col-form-label" Text="Cuenta" runat="server">Cuenta:</asp:Label>
                 <div class="col-lg-4">
                     <asp:DropDownList ID="CuentaDropDownList" CssClass="form-control" runat="server">
-                        <asp:ListItem></asp:ListItem>
+                        <asp:ListItem Selected="True" Value="">Seleccione</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="col-lg-1">
@@ -115,6 +115,9 @@
                 </div>
                 <div class="col-lg-2 ml-5 mr-1">
                 </div>
+            </div>
+            <div>
+                <asp:Label Text="" ID="MensajeLabel" runat="server" />
             </div>
 
             <!--Card body end-->

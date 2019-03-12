@@ -19,6 +19,7 @@ namespace SegundoParcialA2.UI.Registros
                 LlenarCombos();
                 int id = Utils.ToInt(Request.QueryString["id"]);
                 FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                LlenarDropDownCuentas();
                 if (id > 0)
                 {
                     PrestamoRepositorio repositorio = new PrestamoRepositorio();
@@ -66,6 +67,16 @@ namespace SegundoParcialA2.UI.Registros
         protected void NuevoLinkButton_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void LlenarDropDownCuentas()
+        {
+            RepositorioBase<Cuentas> repositorioBase = new RepositorioBase<Cuentas>();
+            CuentaDropDownList.DataSource = repositorioBase.GetList(x => true);
+            CuentaDropDownList.DataValueField = "CuentaID";
+            CuentaDropDownList.DataTextField = "Nombre";
+            CuentaDropDownList.AppendDataBoundItems = true;
+            CuentaDropDownList.DataBind();
         }
 
         protected void GuardarLinkButton_Click(object sender, EventArgs e)
@@ -174,9 +185,9 @@ namespace SegundoParcialA2.UI.Registros
 
         void Mensaje(TipoMensaje tipo, string mensaje)
         {
-            Mensaje.Text = mensaje;
+            MensajeLabel.Text = mensaje;
             if (tipo == TipoMensaje.Sucess)
-                mensaje.CssClass = "alert-success";
+                MensajeLabel.CssClass = "alert-success";
             else
                 MensajeLabel.CssClass = "alert-danger";
         }

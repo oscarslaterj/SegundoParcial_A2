@@ -59,5 +59,10 @@ namespace SegundoParcialA2.UI.Consultas
             CuentaGridView.DataSource = repositorio.GetList(filtro);
             CuentaGridView.DataBind();
         }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
