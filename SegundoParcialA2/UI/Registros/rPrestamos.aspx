@@ -84,7 +84,7 @@
                 </div>
                 <div class="w-100"></div>
                 <div class="col-lg-6">
-                    <asp:LinkButton ID="CalcularLinkButton" CssClass="btn btn-primary" Text="text" runat="server" CausesValidation="true">
+                    <asp:LinkButton ID="CalcularLinkButton" CssClass="btn btn-primary" Text="text" runat="server" OnClick="CalcularLinkButton_Click" CausesValidation="true">
                         <span class=""></span>
                         Calcular
                     </asp:LinkButton>
@@ -94,12 +94,11 @@
             <!--Grid-->
             <div class="row justify-content-center mt-3">
                 <div class="col-lg-11">
-                    <asp:GridView ID="CuotaGridView" runat="server" AllowPaging="true" PageSize="7" CssClass="table table-striped table-hover table-responsive-lg" AutoGenerateColumns="False">
+                    <asp:GridView ID="CuotaGridView" OnPageIndexChanging="CuotaGridView_PageIndexChanging" runat="server" AllowPaging="true" PageSize="7" CssClass="table table-striped table-hover table-responsive-lg" AutoGenerateColumns="False">
                         <Columns>
-                            <asp:BoundField DataField="NoPago" HeaderText="Pago#" />
+                            <asp:BoundField DataField="NoCuota" HeaderText="Pago#" />
                             <asp:BoundField DataField="Interes" HeaderText="Interes" />
                             <asp:BoundField DataField="Capital" HeaderText="Capital" />
-                            <asp:BoundField DataField="Cuota" HeaderText="Cuota" />
                             <asp:BoundField DataField="Balance" HeaderText="Balance" />
                         </Columns>
                     </asp:GridView>

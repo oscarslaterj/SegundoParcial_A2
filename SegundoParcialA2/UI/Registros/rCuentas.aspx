@@ -43,13 +43,12 @@
         <%--Balance--%>
         <div class="form-group col-md-3">
             <asp:Label Text="Balance" runat="server" />
-            <asp:TextBox ID="BalanceTextBox" TextMode="Number" ReadOnly="false" class="form-control input-sm" placeholder="0" runat="server" />
+            <asp:TextBox ID="BalanceTextBox" TextMode="Number" ReadOnly="true" class="form-control input-sm" placeholder="0" runat="server" />
         </div>
 
     </div>
 
-    <asp:Label ID="MensajeLabel" runat="server" Text=""></asp:Label>
-
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -57,9 +56,9 @@
     <div class="panel-footer">
         <div class="text-center">
             <div class="form-group" style="display: inline-block">
-                <asp:Button Text="Nuevo" class="btn btn-outline-info btn-md" runat="server" ID="NuevoButton"/>
-                <asp:Button Text="Guardar" class="btn btn-outline-success btn-md" runat="server" ID="GuardarButton" />
-                <asp:Button Text="Eliminar" class="btn btn-outline-danger btn-md" runat="server" ID="EliminarButton" />
+                <asp:Button Text="Nuevo" class="btn btn-outline-info btn-md" runat="server"  ID="NuevoButton"/>
+                <asp:Button Text="Guardar" class="btn btn-outline-success btn-md" runat="server" OnClick="GuardarButton_Click" ID="GuardarButton" />
+                <asp:Button Text="Eliminar" class="btn btn-outline-danger btn-md" runat="server" OnClick="EliminarButton_Click" ID="EliminarButton" />
                 <asp:Button Text="Imprimir" class="btn btn-outline-secondary btn-md" runat="server" ID="ImprimirButton" />
             </div>
         </div>

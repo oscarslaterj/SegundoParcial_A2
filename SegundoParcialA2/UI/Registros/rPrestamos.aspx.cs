@@ -16,7 +16,7 @@ namespace SegundoParcialA2.UI.Registros
         {
             if (!Page.IsPostBack)
             {
-                LlenarCombos();
+               
                 int id = Utils.ToInt(Request.QueryString["id"]);
                 FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 LlenarDropDownCuentas();
@@ -52,7 +52,8 @@ namespace SegundoParcialA2.UI.Registros
         }
 
         protected void CalcularLinkButton_Click(object sender, EventArgs e)
-        {
+        {            
+            
             int id = 0;
             PrestamoRepositorio repositorio = new PrestamoRepositorio();
 
@@ -173,15 +174,7 @@ namespace SegundoParcialA2.UI.Registros
             ViewState["PrestamosDetalles"] = null;
         }
 
-        private void LlenarCombos()
-        {
-            RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
-            CuentaDropDownList.DataSource = repositorio.GetList(c => true);
-            CuentaDropDownList.DataValueField = "CuentaId";
-            CuentaDropDownList.DataTextField = "Nombre";
-            CuentaDropDownList.DataBind();
-            CuentaDropDownList.Items.Insert(0, new ListItem("", ""));
-        }
+       
 
         void Mensaje(TipoMensaje tipo, string mensaje)
         {
@@ -198,6 +191,11 @@ namespace SegundoParcialA2.UI.Registros
                 args.IsValid = false;
             else
                 args.IsValid = true;
+        }
+
+        protected void CuotaGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
         }
     }
 }

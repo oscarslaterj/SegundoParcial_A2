@@ -15,6 +15,7 @@ namespace SegundoParcialA2.Utilitarios
 
             return retorno;
         }
+              
 
         public static void MostraMensaje(this Page page, string mensaje, string title, string type = "info")
         {

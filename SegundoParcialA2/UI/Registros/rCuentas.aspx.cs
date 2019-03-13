@@ -34,7 +34,7 @@ namespace SegundoParcialA2.UI.Registros
             cb.CuentaID = Utils.ToInt(CuentaIdTextBox.Text);
             cb.Fecha = Convert.ToDateTime(FechaTextBox.Text).Date;
             cb.Nombre = NombreTextBox.Text;
-            cb.Balance = Utils.ToInt(BalanceTextBox.Text);
+            cb.Balance = Utils.ToDecimal(BalanceTextBox.Text);
 
             return cb;
 
@@ -65,6 +65,43 @@ namespace SegundoParcialA2.UI.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
+            Cuentas cuentas = new Cuentas();
+
+            if (IsValid)
+            {
+                cuentas = repositorio.Buscar(Utils.ToInt(CuentaIdTextBox.Text));
+
+                if (cuentas == null)
+                {
+                    if (repositorio.Guardar(LlenaClase()))
+                    {
+                        Utils.MostraMensaje(this, "Guardado correctamente", "Informacion", "success");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Utils.MostraMensaje(this, "No se pudo guardar", "Informacion", "error");
+
+                    }
+                }
+                else
+                {
+                    if (repositorio.Modificar(LlenaClase()))
+                    {
+                        Utils.MostraMensaje(this, "Modificado correctamente", "Informacion", "success");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Utils.MostraMensaje(this, "No se pudo modificado", "Informacion", "error");
+
+                    }
+
+                }
+
+            }
+
+            /*RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
             Cuentas cuentasbancarias = new Cuentas();
             bool paso = false;
 
@@ -98,7 +135,7 @@ namespace SegundoParcialA2.UI.Registros
                 Limpiar();
             }
             else
-                Response.Write("<script>alert('No se pudo guardar');</script>");
+                Response.Write("<script>alert('No se pudo guardar');</script>");*/
         }
 
         protected void EliminarButton_Click(object sender, EventArgs e)
@@ -122,4 +159,4 @@ namespace SegundoParcialA2.UI.Registros
                 Utils.MostraMensaje(this, "No existe", "Error", "error");
         }
     }
-    }
+}
