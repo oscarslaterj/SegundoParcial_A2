@@ -16,7 +16,7 @@
                     <div class="input-group">
                         <asp:TextBox ID="IdTextBox" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
                         <div class="input-group-append">
-                            <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False">
+                            <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-secondary" runat="server" OnClick="BuscarLinkButton_Click" CausesValidation="False">
                                 <span class="fas fa-search"></span>
                                 Buscar
                             </asp:LinkButton>
@@ -107,10 +107,10 @@
 
             <div class="form-group row justify-content-center">
                 <div class="col-lg-2 mr-2">
-                    <asp:TextBox ID="InteresTotalTextBox" CssClass="form-control" Visible="false" ReadOnly="true" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="InteresTotalTextBox" CssClass="form-control" Visible="true" ReadOnly="true" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-2 mr-3">
-                    <asp:TextBox ID="CapitalTotalTextBox" CssClass="form-control" Visible="false" ReadOnly="true" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="CapitalTotalTextBox" CssClass="form-control" Visible="true" ReadOnly="true" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-2 ml-5 mr-1">
                 </div>
@@ -127,7 +127,7 @@
             <div class="form-group row justify-content-center">
                 <!--Nuevo-->
                 <div class="col-lg-1 mr-1">
-                    <asp:LinkButton ID="NuevoLinkButton" CssClass="btn btn-primary" runat="server" CausesValidation="False">
+                    <asp:LinkButton ID="NuevoLinkButton" CssClass="btn btn-primary" runat="server" OnClick="NuevoLinkButton_Click" CausesValidation="False">
                         <span class="fas fa-plus"></span>
                         Nuevo
                     </asp:LinkButton>
@@ -135,7 +135,7 @@
 
                 <!--Guardar-->
                 <div class="col-lg-1 mr-3">
-                    <asp:LinkButton ID="GuardarLinkButton" CssClass="btn btn-success" runat="server">
+                    <asp:LinkButton ID="GuardarLinkButton" CssClass="btn btn-success" OnClick="GuardarLinkButton_Click" runat="server">
                         <span class="fas fa-save"></span>
                         Guardar
                     </asp:LinkButton>
@@ -143,7 +143,7 @@
 
                 <!--Eliminar-->
                 <div class="col-lg-1 mr-3">
-                    <asp:LinkButton ID="EliminarLinkButton" CssClass="btn btn-danger" runat="server" CausesValidation="False">
+                    <asp:LinkButton ID="EliminarLinkButton" CssClass="btn btn-danger" runat="server" OnClick="EliminarLinkButton_Click" CausesValidation="False">
                         <span class="fas fa-trash-alt"></span>
                         Eliminar
                     </asp:LinkButton>

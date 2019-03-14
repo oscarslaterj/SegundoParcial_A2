@@ -12,6 +12,8 @@ namespace SegundoParcialA2.UI.Registros
 {
     public partial class rPrestamos : System.Web.UI.Page
     {
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -52,9 +54,49 @@ namespace SegundoParcialA2.UI.Registros
         }
 
         protected void CalcularLinkButton_Click(object sender, EventArgs e)
-        {            
+        {
+            List<CuotasDetalle> listaCuotas = new List<CuotasDetalle>();
+            int tiempo = Utils.ToInt(TiempoTextBox.Text);
+            decimal tasaInters = Utils.ToDecimal(InteresTextBox.Text)/100;
+            decimal montoCapital = Utils.ToDecimal(CapitalTextBox.Text);
+            decimal capital = Utils.ToDecimal(CapitalTextBox.Text) / tiempo;
+            decimal pago = 0, balanceAnt = 0, totalIntere = 0; 
             
-            int id = 0;
+
+            for (int i = 1; i <= tiempo; i++)
+            {
+                CuotasDetalle c = new CuotasDetalle();
+                c.NoCuota = i;                
+                c.Interes = decimal.Round(capital * tasaInters,2);
+                c.Capital = decimal.Round(capital,2);
+                pago = decimal.Round(capital + c.Interes,2);
+                if (i == 1)
+                {
+                    c.Balance = decimal.Round((tasaInters * montoCapital) + (montoCapital - pago),2);
+                    balanceAnt = c.Balance; 
+                }
+                    
+                else
+                {
+                    c.Balance = decimal.Round(balanceAnt - pago,2);
+                    balanceAnt = c.Balance;
+                }
+                totalIntere += c.Interes;
+
+                listaCuotas.Add(c);
+                ViewState["PrestamosDetalles"] = listaCuotas;
+            }
+            
+            InteresTotalTextBox.Text = totalIntere.ToString();
+            CapitalTotalTextBox.Text = (montoCapital + totalIntere).ToString();
+            CuotaGridView.DataSource = listaCuotas;
+            CuotaGridView.DataBind();
+
+
+
+
+            
+            /*int id = 0;
             PrestamoRepositorio repositorio = new PrestamoRepositorio();
 
             if (IdTextBox.Text == string.Empty)
@@ -62,7 +104,7 @@ namespace SegundoParcialA2.UI.Registros
             else
                 ViewState["PrestamosDetalles"] = repositorio.CalcularCuotasModificadas((List<CuotasDetalle>)ViewState["PrestamosDetalles"], id, Utils.ToInt(TiempoTextBox.Text), Utils.ToDouble(CapitalTextBox.Text), (Utils.ToDouble(InteresTextBox.Text) / 100 / 12));
             CuotaGridView.DataSource = ViewState["PrestamosDetalles"];
-            CuotaGridView.DataBind();
+            CuotaGridView.DataBind();*/
         }
 
         protected void NuevoLinkButton_Click(object sender, EventArgs e)
@@ -195,7 +237,9 @@ namespace SegundoParcialA2.UI.Registros
 
         protected void CuotaGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            CuotaGridView.DataSource = (List<CuotasDetalle>)ViewState["PrestamosDetalles"];
+            CuotaGridView.PageIndex = e.NewPageIndex;
+            CuotaGridView.DataBind();
         }
     }
 }
