@@ -132,6 +132,17 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="CuentasDbDataSet.xsc">
+      <DependentUpon>CuentasDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="CuentasDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CuentasDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="CuentasDbDataSet.xss">
+      <DependentUpon>CuentasDbDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\SegundoParcialA220190314023629 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -178,6 +189,11 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CuentasDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuentasDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -275,6 +291,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI\Reportes\CuentasReport.rdlc" />
     <EmbeddedResource Include="UI\Reportes\PrestamosReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
