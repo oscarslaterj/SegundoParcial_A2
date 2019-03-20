@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    
+
     <link href="/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="/Content/toastr.min.css" rel="stylesheet" />
     <script src="/Scripts/bootstrap.min.js"></script>
@@ -38,16 +38,25 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="default.aspx">Inicio
                 <span class="sr-only">(current)</span>
+                                <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Registros
                             </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" runat ="server" href="UI/Registros/rCuentas.aspx">Cuentas</a>                              
+                                <a class="dropdown-item" runat ="server" href="#">Depositos</a>
+                                <a class="dropdown-item" runat ="server" href="UI/Registros/rPrestamos.aspx">Prestamos</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" runat="server" href="/UI/Registros/rCuentas.aspx">Registro de Cuentas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" runat="server" href="/UI/Registros/rPrestamos.aspx">Registro de Prestamos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" runat="server" href="#">Salir</a>
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop2" data-toggle="dropdown">Consultas
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" runat ="server" href="UI/Consultas/cCuentas.aspx">Cuentas</a>
+                                <a class="dropdown-item" runat ="server" href="#">Depositos</a>
+                                <a class="dropdown-item" runat ="server" href="UI/Consultas/cPrestamos.aspx">Prestamos</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
