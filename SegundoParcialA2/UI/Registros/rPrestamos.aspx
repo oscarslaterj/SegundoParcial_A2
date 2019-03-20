@@ -60,7 +60,7 @@
                 <asp:Label ID="Label6" CssClass="col-form-label" Text="Interes" runat="server">Interes:</asp:Label>
                 <div class="col-lg-4">
                     <div class="input-group">
-                        <asp:TextBox ID="InteresTextBox" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="InteresTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                         <div class="input-group-append">
                             <span class="input-group-text">%</span>
                         </div>
