@@ -143,6 +143,8 @@
     <Content Include="CuentasDataSet.xss">
       <DependentUpon>CuentasDataSet.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\SegundoParcial - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\SegundoParcial - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\SegundoParcialA220190320022301 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

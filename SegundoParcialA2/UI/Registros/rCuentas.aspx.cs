@@ -46,7 +46,7 @@ namespace SegundoParcialA2.UI.Registros
             Cuentas cuentasbancarias = repositoriobase.Buscar(Utils.ToInt(CuentaIdTextBox.Text));
             if (cuentasbancarias != null)
             {
-                FechaTextBox.Text = cuentasbancarias.Fecha.ToString();
+                FechaTextBox.Text = cuentasbancarias.Fecha.ToString("yyyy-MM-dd");
                 NombreTextBox.Text = cuentasbancarias.Nombre;
                 BalanceTextBox.Text = cuentasbancarias.Balance.ToString();
                 Utils.MostraMensaje(this, "Busqueda exitosa", "Exito", "success");

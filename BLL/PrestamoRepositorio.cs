@@ -53,7 +53,7 @@ namespace BLL
             decimal monto = 0;
             try
             {
-                var PrestamoAnt = contexto.Cuotas.Where(c => c.PrestamoId == prestamo.PrestamoId).ToList();
+                var PrestamoAnt = contexto.Cuotas.Where(c => c.PrestamoId == prestamo.PrestamoId).AsNoTracking().ToList();
 
                 foreach (var item in PrestamoAnt)
                 {
@@ -85,8 +85,8 @@ namespace BLL
                 }
 
                 contexto.Entry(prestamo).State = EntityState.Modified;
-                if (contexto.SaveChanges() > 0)
-                    step = true;
+
+                step = contexto.SaveChanges() > 0 ? true : false;
 
             }
             catch (Exception e)

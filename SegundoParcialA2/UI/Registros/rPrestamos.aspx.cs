@@ -195,8 +195,10 @@ namespace SegundoParcialA2.UI.Registros
             CuentaDropDownList.Text = prestamo.CuentaId.ToString();
             CapitalTextBox.Text = prestamo.Capital.ToString();
             InteresTextBox.Text = prestamo.TasaInteres.ToString();
-            TiempoTextBox.Text = prestamo.Tiempo.ToString();
-            this.BindGrid();
+            TiempoTextBox.Text = prestamo.Tiempo.ToString();            
+            ViewState["PrestamosDetalles"] = prestamo.Detalle;
+            CuotaGridView.DataSource = ((List<CuotasDetalle>)ViewState["PrestamosDetalles"]);
+            CuotaGridView.DataBind();
         }
 
         protected void BindGrid()

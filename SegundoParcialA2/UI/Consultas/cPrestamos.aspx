@@ -48,7 +48,8 @@
 
 
     <div class="form-row justify-content-center">
-        <asp:GridView ID="PrestamoGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="PrestamoGridView_SelectedIndexChanged">
+        <asp:GridView ID="PrestamoGridView" runat="server" class="table table-condensed table-bordered table-responsive" 
+            AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="SkyBlue" />
             <Columns>
                 <asp:BoundField DataField="PrestamoId" HeaderText="Prestamo Id" />
